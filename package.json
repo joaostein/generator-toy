@@ -1,0 +1,16 @@
+{
+  "name": "generator-toyproblem",
+  "version": "1.0.0",
+  "description": "A generator for toy problems solution scaffold with the tools you love: Gulp, Mocha, Chai and JSHint",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Joao Stein <joaosteing@gmail.com> (http://jstein.me)",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^0.22.5"
+  }
+}
