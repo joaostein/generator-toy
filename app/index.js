@@ -12,6 +12,19 @@ module.exports = generators.Base.extend({
     this.option('coffee'); // This method adds support for a `--coffee` flag
   },
 
+  prompting: function () {
+    var done = this.async();
+    this.prompt({
+      type    : 'input',
+      name    : 'name',
+      message : 'Your project name',
+      default : 'toyproblem-scaffold'
+    }, function (answers) {
+      this.log(answers.name);
+      done();
+    }.bind(this));
+  },
+
   method1: function () {
     console.log('method 1 just ran');
   },
