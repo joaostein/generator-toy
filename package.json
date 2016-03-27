@@ -2,6 +2,9 @@
   "name": "generator-toyproblem",
   "version": "1.0.0",
   "description": "A generator for toy problems solution scaffold with the tools you love: Gulp, Mocha, Chai and JSHint",
+  "scripts": {
+    "test": "gulp"
+  },
   "files": [
     "app"
   ],
@@ -13,5 +16,17 @@
   "dependencies": {
     "lodash": "^4.6.1",
     "yeoman-generator": "^0.22.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "mocha": "^2.4.5",
+    "mockery": "^1.4.1",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.1.0"
   }
 }
