@@ -32,11 +32,11 @@ module.exports = generators.Base.extend({
   },
 
   method1: function () {
-    console.log(this.appname);
-    console.log('method 1 just ran');
+    this.log(this.appname);
+    this.log('method 1 just ran');
   },
 
   method2: function () {
-    console.log('method 2 just ran');
+    this.log('method 2 just ran');
   }
 });
