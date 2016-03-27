@@ -31,6 +31,20 @@ module.exports = generators.Base.extend({
     // }.bind(this));
   },
 
+  paths: function () {
+    this.log('.destinationRoot() =>', this.destinationRoot());
+    // returns '~/projects'
+
+    this.log('.destinationPath() =>', this.destinationPath('index.js'));
+    // returns '~/projects/index.js'
+
+    this.log('.sourceRoot() =>', this.sourceRoot());
+    // returns './templates'
+
+    this.log('.templatePath() =>', this.templatePath('index.js'));
+    // returns './templates/index.js'
+  },
+
   method1: function () {
     this.log(this.appname);
     this.log('method 1 just ran');
