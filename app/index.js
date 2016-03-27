@@ -2,6 +2,7 @@
 
 var generators = require('yeoman-generator');
 var _ = require('lodash');
+var mkdirp = require('mkdirp');
 
 module.exports = generators.Base.extend({
   // The name `constructor` is important here
@@ -16,6 +17,11 @@ module.exports = generators.Base.extend({
     this.argument('appname', { type: String, required: true });
     // And you can then access it later on this way; e.g. CamelCased
     this.appname = _.camelCase(this.appname);
+  },
+
+  default: function () {
+    mkdirp(this.appname);
+    this.destinationRoot(this.destinationPath(this.appname));
   },
 
   prompting: function () {
