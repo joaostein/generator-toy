@@ -30,5 +30,9 @@ module.exports = generators.Base.extend({
     this.composeWith('node:license', {}, {
       local: require.resolve('../license')
     });
+    // Delegate creation of Git files
+    this.composeWith('node:git', {}, {
+      local: require.resolve('../git')
+    });
   }
 });

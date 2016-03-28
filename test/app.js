@@ -24,7 +24,8 @@ describe('toyproblem:app', function () {
       var expected = [
         'package.json',
         'README.md',
-        'LICENSE.md'
+        'LICENSE.md',
+        '.gitignore'
       ];
 
       assert.file(expected);
