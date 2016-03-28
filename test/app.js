@@ -25,7 +25,8 @@ describe('toyproblem:app', function () {
         'package.json',
         'README.md',
         'LICENSE.md',
-        '.gitignore'
+        '.gitignore',
+        'gulpfile.js'
       ];
 
       assert.file(expected);

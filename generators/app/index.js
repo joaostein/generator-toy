@@ -34,5 +34,9 @@ module.exports = generators.Base.extend({
     this.composeWith('node:git', {}, {
       local: require.resolve('../git')
     });
+    // Delegate creation of gulpfile
+    this.composeWith('node:gulp', {}, {
+      local: require.resolve('../gulp')
+    });
   }
 });
