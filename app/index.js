@@ -2,7 +2,6 @@
 
 var generators = require('yeoman-generator');
 var _ = require('lodash');
-var mkdirp = require('mkdirp');
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -12,7 +11,13 @@ module.exports = generators.Base.extend({
   },
 
   initializing: function () {
-    mkdirp(this.appname);
+    this.pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+  },
+
+  writing: function () {
+    // crete project folder
     this.destinationRoot(this.destinationPath(this.appname));
+    // Create package.json file
+    this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
   }
 });

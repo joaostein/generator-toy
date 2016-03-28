@@ -19,5 +19,13 @@ describe('generator:app', function () {
     it('should CD into a folder named with camelCase version of argument', function () {
       assert.equal(path.basename(process.cwd()), _.camelCase(FOLDER_NAME));
     });
+
+    it('should create default files', function () {
+      var expected = [
+        'package.json'
+      ];
+
+      assert.file(expected);
+    });
   });
 });
