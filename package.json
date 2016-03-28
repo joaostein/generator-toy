@@ -6,7 +6,7 @@
     "test": "gulp"
   },
   "files": [
-    "app"
+    "generators/app"
   ],
   "keywords": [
     "yeoman-generator"

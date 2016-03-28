@@ -16,9 +16,7 @@ gulp.task('static', function () {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src([
-    'app/index.js'
-  ])
+  return gulp.src(['generators/**/*.js', '!**/templates/**'])
     .pipe(istanbul({
       includeUntested: true
     }))

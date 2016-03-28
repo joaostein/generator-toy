@@ -5,12 +5,12 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 var _ = require('lodash');
 
-describe('generator:app', function () {
+describe('toyproblem:app', function () {
   var FOLDER_NAME = 'example-folder';
 
   describe('defaults', function () {
     before(function (done) {
-      var generatorPath = path.join(__dirname, '../app');
+      var generatorPath = path.join(__dirname, '../generators/app');
       helpers.run(generatorPath)
         .withArguments([FOLDER_NAME])
         .on('end', done);
