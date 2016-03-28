@@ -3,9 +3,10 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
+var _ = require('lodash');
 
 describe('generator:app', function () {
-  var FOLDER_NAME = 'example';
+  var FOLDER_NAME = 'example-folder';
 
   describe('defaults', function () {
     before(function (done) {
@@ -15,8 +16,8 @@ describe('generator:app', function () {
         .on('end', done);
     });
 
-    it('created and CD into a folder named with the arguments', function () {
-      assert.equal(path.basename(process.cwd()), FOLDER_NAME);
+    it('should CD into a folder named with camelCase version of argument', function () {
+      assert.equal(path.basename(process.cwd()), _.camelCase(FOLDER_NAME));
     });
   });
 });
