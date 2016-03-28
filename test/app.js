@@ -26,7 +26,9 @@ describe('toyproblem:app', function () {
         'README.md',
         'LICENSE.md',
         '.gitignore',
-        'gulpfile.js'
+        'gulpfile.js',
+        'index.js',
+        'test/test.js'
       ];
 
       assert.file(expected);

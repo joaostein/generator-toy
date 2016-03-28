@@ -23,20 +23,24 @@ module.exports = generators.Base.extend({
 
   default: function () {
     // Delegate creation of README.md file
-    this.composeWith('node:readme', {}, {
+    this.composeWith('toyproblem:readme', {}, {
       local: require.resolve('../readme')
     });
     // Delegate creation of LICENSE.md file
-    this.composeWith('node:license', {}, {
+    this.composeWith('toyproblem:license', {}, {
       local: require.resolve('../license')
     });
     // Delegate creation of Git files
-    this.composeWith('node:git', {}, {
+    this.composeWith('toyproblem:git', {}, {
       local: require.resolve('../git')
     });
     // Delegate creation of gulpfile
-    this.composeWith('node:gulp', {}, {
+    this.composeWith('toyproblem:gulp', {}, {
       local: require.resolve('../gulp')
+    });
+    // Delegate creation of boilerplate files
+    this.composeWith('toyproblem:gulp', {}, {
+      local: require.resolve('../boilerplate')
     });
   }
 });
