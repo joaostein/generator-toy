@@ -22,7 +22,8 @@ describe('toyproblem:app', function () {
 
     it('should create default files', function () {
       var expected = [
-        'package.json'
+        'package.json',
+        'README.md'
       ];
 
       assert.file(expected);

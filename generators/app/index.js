@@ -19,5 +19,12 @@ module.exports = generators.Base.extend({
     this.destinationRoot(this.destinationPath(this.appname));
     // Create package.json file
     this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
+  },
+
+  default: function () {
+    // Delegate creation of README.md file
+    this.composeWith('node:readme', {}, {
+      local: require.resolve('../readme')
+    });
   }
 });
