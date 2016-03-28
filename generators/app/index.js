@@ -26,5 +26,9 @@ module.exports = generators.Base.extend({
     this.composeWith('node:readme', {}, {
       local: require.resolve('../readme')
     });
+    // Delegate creation of LICENSE.md file
+    this.composeWith('node:license', {}, {
+      local: require.resolve('../license')
+    });
   }
 });
