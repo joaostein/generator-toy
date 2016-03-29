@@ -40,6 +40,11 @@ module.exports = generators.Base.extend({
         name: 'version',
         message: 'Your project version',
         default: this.options.version
+      }, {
+        type: 'input',
+        name: 'description',
+        message: 'Your project description',
+        default: ''
       }];
 
       this.prompt(prompts, function (props) {

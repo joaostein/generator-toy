@@ -9,7 +9,8 @@ describe('toyproblem:app', function () {
   before(function (done) {
     this.answers = {
       name: 'exampleProject',
-      version: '1.0.0'
+      version: '1.0.0',
+      description: 'This is my example description'
     };
 
     helpers.run(path.join(__dirname, '../generators/app'))
@@ -41,7 +42,8 @@ describe('toyproblem:app', function () {
     it('should fill with correct information', function () {
       assert.jsonFileContent('package.json', {
         name: _.kebabCase(this.answers.name),
-        version: this.answers.version
+        version: this.answers.version,
+        description: this.answers.description
       });
     });
   });
