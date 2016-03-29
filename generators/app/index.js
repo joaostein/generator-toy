@@ -6,6 +6,20 @@ var _ = require('lodash');
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
+
+    this.option('name', {
+      type: String,
+      required: true,
+      defaults: 'toyproblem-boilerplate',
+      desc: 'Project name'
+    });
+
+    this.option('version', {
+      type: String,
+      required: true,
+      defaults: '0.0.0',
+      desc: 'Project version'
+    });
   },
 
   initializae: function () {
@@ -13,18 +27,24 @@ module.exports = generators.Base.extend({
   },
 
   prompting: {
-    askForModuleName: function () {
+    askFor: function () {
       var done = this.async();
 
-      var data = {
+      var prompts = [{
         type: 'input',
         name: 'name',
         message: 'Your project name',
         default: this.options.name
-      };
+      }, {
+        type: 'input',
+        name: 'version',
+        message: 'Your project version',
+        default: this.options.version
+      }];
 
-      this.prompt(data, function (answer) {
-        this.options.name = _.kebabCase(answer.name);
+      this.prompt(prompts, function (props) {
+        props.name = _.kebabCase(props.name);
+        this.options = _.merge(this.options, props);
         done();
       }.bind(this));
     }
@@ -34,8 +54,7 @@ module.exports = generators.Base.extend({
     // create project folder
     this.destinationRoot(this.destinationPath(this.options.name));
     // Update & Create package.json
-    this.pkg.name = this.options.name;
-    this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
+    this.fs.writeJSON(this.destinationPath('package.json'), this.options);
   },
 
   default: function () {

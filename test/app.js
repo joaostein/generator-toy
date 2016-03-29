@@ -8,7 +8,8 @@ var _ = require('lodash');
 describe('toyproblem:app', function () {
   before(function (done) {
     this.answers = {
-      name: 'exampleProject'
+      name: 'exampleProject',
+      version: '1.0.0'
     };
 
     helpers.run(path.join(__dirname, '../generators/app'))
@@ -39,7 +40,8 @@ describe('toyproblem:app', function () {
   describe('package.json', function () {
     it('should fill with correct information', function () {
       assert.jsonFileContent('package.json', {
-        name: _.kebabCase(this.answers.name)
+        name: _.kebabCase(this.answers.name),
+        version: this.answers.version
       });
     });
   });
