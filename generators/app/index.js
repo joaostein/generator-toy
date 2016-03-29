@@ -15,10 +15,6 @@ module.exports = generators.Base.extend({
     });
   },
 
-  initializae: function () {
-    this.pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
-  },
-
   prompting: {
     askFor: function () {
       var done = this.async();
