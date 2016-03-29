@@ -6,18 +6,19 @@ var helpers = require('yeoman-test');
 var _ = require('lodash');
 
 describe('toyproblem:app', function () {
-  var FOLDER_NAME = 'example-folder';
+  before(function (done) {
+    this.answers = {
+      name: 'exampleProject'
+    };
+
+    helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts(this.answers)
+      .on('end', done);
+  });
 
   describe('defaults', function () {
-    before(function (done) {
-      var generatorPath = path.join(__dirname, '../generators/app');
-      helpers.run(generatorPath)
-        .withArguments([FOLDER_NAME])
-        .on('end', done);
-    });
-
-    it('should CD into a folder named with camelCase version of argument', function () {
-      assert.equal(path.basename(process.cwd()), _.camelCase(FOLDER_NAME));
+    it('should CD into a folder named with kebab-case version of argument', function () {
+      assert.equal(path.basename(process.cwd()), _.kebabCase(this.answers.name));
     });
 
     it('should create default files', function () {
@@ -32,6 +33,14 @@ describe('toyproblem:app', function () {
       ];
 
       assert.file(expected);
+    });
+  });
+
+  describe('package.json', function () {
+    it('should fill with correct information', function () {
+      assert.jsonFileContent('package.json', {
+        name: _.kebabCase(this.answers.name)
+      });
     });
   });
 });

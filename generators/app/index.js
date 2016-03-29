@@ -6,18 +6,35 @@ var _ = require('lodash');
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
-    this.argument('appname', { type: String, required: true });
-    this.appname = _.camelCase(this.appname);
   },
 
-  initializing: function () {
+  initializae: function () {
     this.pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
   },
 
+  prompting: {
+    askForModuleName: function () {
+      var done = this.async();
+
+      var data = {
+        type: 'input',
+        name: 'name',
+        message: 'Your project name',
+        default: this.options.name
+      };
+
+      this.prompt(data, function (answer) {
+        this.options.name = _.kebabCase(answer.name);
+        done();
+      }.bind(this));
+    }
+  },
+
   writing: function () {
-    // crete project folder
-    this.destinationRoot(this.destinationPath(this.appname));
-    // Create package.json file
+    // create project folder
+    this.destinationRoot(this.destinationPath(this.options.name));
+    // Update & Create package.json
+    this.pkg.name = this.options.name;
     this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
   },
 
