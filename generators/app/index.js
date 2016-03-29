@@ -13,13 +13,6 @@ module.exports = generators.Base.extend({
       defaults: 'toyproblem-boilerplate',
       desc: 'Project name'
     });
-
-    this.option('version', {
-      type: String,
-      required: true,
-      defaults: '0.0.0',
-      desc: 'Project version'
-    });
   },
 
   initializae: function () {
@@ -39,7 +32,7 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'version',
         message: 'Your project version',
-        default: this.options.version
+        default: '0.0.0'
       }, {
         type: 'input',
         name: 'description',
