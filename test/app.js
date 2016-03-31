@@ -10,7 +10,10 @@ describe('toyproblem:app', function () {
     this.answers = {
       name: 'exampleProject',
       version: '1.0.0',
-      description: 'This is my example description'
+      description: 'This is my example description',
+      authorName: 'Testing',
+      authorEmail: 'test@example.com',
+      authorUrl: 'http://example.com'
     };
 
     helpers.run(path.join(__dirname, '../generators/app'))
@@ -43,7 +46,17 @@ describe('toyproblem:app', function () {
       assert.jsonFileContent('package.json', {
         name: _.kebabCase(this.answers.name),
         version: this.answers.version,
-        description: this.answers.description
+        description: this.answers.description,
+        main: 'index.js',
+        scripts: {
+          test: 'mocha'
+        },
+        license: 'MIT',
+        author: {
+          name: this.answers.authorName,
+          email: this.answers.authorEmail,
+          url: this.answers.authorUrl
+        }
       });
     });
   });

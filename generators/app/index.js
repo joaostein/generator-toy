@@ -34,6 +34,21 @@ module.exports = generators.Base.extend({
         name: 'description',
         message: 'Your project description',
         default: ''
+      }, {
+        type: 'input',
+        name: 'authorName',
+        message: 'Author\'s Name',
+        default: this.user.git.name()
+      }, {
+        type: 'input',
+        name: 'authorEmail',
+        message: 'Author\'s Email',
+        default: this.user.git.email()
+      }, {
+        type: 'input',
+        name: 'authorUrl',
+        message: 'Author\'s Homepage',
+        default: ''
       }];
 
       this.prompt(prompts, function (props) {
@@ -47,8 +62,20 @@ module.exports = generators.Base.extend({
   writing: function () {
     // create project folder
     this.destinationRoot(this.destinationPath(this.options.name));
+    var pkg = _.merge({
+      main: 'index.js',
+      scripts: {
+        test: 'mocha'
+      },
+      license: 'MIT',
+      author: {
+        name: this.options.authorName,
+        email: this.options.authorEmail,
+        url: this.options.authorUrl
+      }
+    }, this.options);
     // Update & Create package.json
-    this.fs.writeJSON(this.destinationPath('package.json'), this.options);
+    this.fs.writeJSON(this.destinationPath('package.json'), pkg);
   },
 
   default: function () {
