@@ -62,7 +62,10 @@ module.exports = generators.Base.extend({
   writing: function () {
     // create project folder
     this.destinationRoot(this.destinationPath(this.options.name));
-    var pkg = _.merge({
+    var pkg = {
+      name: this.options.name,
+      version: this.options.version,
+      description: this.options.description,
       main: 'index.js',
       scripts: {
         test: 'mocha'
@@ -73,7 +76,7 @@ module.exports = generators.Base.extend({
         email: this.options.authorEmail,
         url: this.options.authorUrl
       }
-    }, this.options);
+    };
     // Update & Create package.json
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
   },
