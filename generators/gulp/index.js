@@ -1,15 +1,28 @@
 'use strict';
 
 var generators = require('yeoman-generator');
+var _ = require('lodash');
 
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
   },
 
-  writing: function () {
-    var templatePath = this.templatePath('gulpfile.js');
-    var destinationTemplatePath = this.destinationPath('gulpfile.js');
-    this.fs.copyTpl(templatePath, destinationTemplatePath, {});
+  writing: {
+    package: function () {
+      var templatePath = this.templatePath('gulpfile.js');
+      var destinationTemplatePath = this.destinationPath('gulpfile.js');
+      this.fs.copyTpl(templatePath, destinationTemplatePath, {});
+
+      var pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+
+      _.merge(pkg, {
+        devDependencies: {
+          'gulp-mocha': '*'
+        }
+      });
+
+      this.fs.writeJSON(this.destinationPath('package.json'), pkg);
+    }
   }
 });
