@@ -8,8 +8,15 @@ module.exports = generators.Base.extend({
   },
 
   writing: function () {
-    var templatePath = this.templatePath('LICENSE.md');
-    var destinationTemplatePath = this.destinationPath('LICENSE.md');
-    this.fs.copyTpl(templatePath, destinationTemplatePath, {});
+    var author = this.options.author;
+    var year = this.options.year;
+
+    var templatePath = this.templatePath('LICENSE');
+    var destinationTemplatePath = this.destinationPath('LICENSE');
+
+    this.fs.copyTpl(templatePath, destinationTemplatePath, {
+      year: year,
+      author: author
+    });
   }
 });

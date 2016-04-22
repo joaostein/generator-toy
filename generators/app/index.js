@@ -87,7 +87,12 @@ module.exports = generators.Base.extend({
       local: require.resolve('../readme')
     });
     // Delegate creation of LICENSE.md file
-    this.composeWith('toyproblem:license', {}, {
+    this.composeWith('toyproblem:license', {
+      options: {
+        author: this.options.authorName,
+        year: (new Date()).getFullYear()
+      }
+    }, {
       local: require.resolve('../license')
     });
     // Delegate creation of Git files

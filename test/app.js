@@ -30,7 +30,7 @@ describe('toyproblem:app', function () {
       var expected = [
         'package.json',
         'README.md',
-        'LICENSE.md',
+        'LICENSE',
         '.gitignore',
         'gulpfile.js',
         'index.js',
@@ -38,6 +38,11 @@ describe('toyproblem:app', function () {
       ];
 
       assert.file(expected);
+    });
+
+    it('should include updated and named license file', function () {
+      var year = (new Date()).getFullYear();
+      assert.fileContent('LICENSE', 'Copyright (c) ' + year + ' ' + this.answers.authorName);
     });
   });
 
