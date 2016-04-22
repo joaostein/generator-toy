@@ -102,5 +102,9 @@ module.exports = generators.Base.extend({
     this.composeWith('toyproblem:gulp', {}, {
       local: require.resolve('../boilerplate')
     });
+  },
+
+  installing: function () {
+    this.npmInstall();
   }
 });

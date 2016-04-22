@@ -64,11 +64,11 @@ describe('toyproblem:app', function () {
       assert.jsonFileContent('package.json', {
         devDependencies: {
           gulp: '*',
+          chai: '*',
+          mocha: '*',
           'gulp-eslint': '*',
           'gulp-mocha': '*',
-          'gulp-chai': '*',
-          'gulp-istanbul': '*',
-          mocha: '*'
+          'gulp-istanbul': '*'
         }
       });
     });
