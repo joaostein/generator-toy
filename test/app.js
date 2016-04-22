@@ -63,7 +63,12 @@ describe('toyproblem:app', function () {
     it('should have dependencies', function () {
       assert.jsonFileContent('package.json', {
         devDependencies: {
-          'gulp-mocha': '*'
+          gulp: '*',
+          'gulp-eslint': '*',
+          'gulp-mocha': '*',
+          'gulp-chai': '*',
+          'gulp-istanbul': '*',
+          mocha: '*'
         }
       });
     });

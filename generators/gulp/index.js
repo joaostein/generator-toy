@@ -18,7 +18,12 @@ module.exports = generators.Base.extend({
 
       _.merge(pkg, {
         devDependencies: {
-          'gulp-mocha': '*'
+          gulp: '*',
+          'gulp-eslint': '*',
+          'gulp-mocha': '*',
+          'gulp-chai': '*',
+          'gulp-istanbul': '*',
+          mocha: '*'
         }
       });
 
