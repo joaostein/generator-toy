@@ -91,5 +91,9 @@ describe('toyproblem:app', function () {
     it('should have license reference', function () {
       assert.fileContent('README.md', 'MIT License © ' + year + ' ' + this.answers.authorName);
     });
+
+    it('should have basic description', function () {
+      assert.fileContent('README.md', 'This is a boilerplate repository with basic files to start a Toy Problem exercise.');
+    });
   });
 });
