@@ -62,6 +62,14 @@ module.exports = generators.Base.extend({
   writing: function () {
     // create project folder
     this.destinationRoot(this.destinationPath(this.options.name));
+  },
+
+  default: function () {
+    var copyright = {
+      author: this.options.authorName,
+      year: (new Date()).getFullYear()
+    };
+
     var pkg = {
       name: this.options.name,
       version: this.options.version,
@@ -77,15 +85,14 @@ module.exports = generators.Base.extend({
         url: this.options.authorUrl
       }
     };
-    // Update & Create package.json
-    this.fs.writeJSON(this.destinationPath('package.json'), pkg);
-  },
 
-  default: function () {
-    var copyright = {
-      author: this.options.authorName,
-      year: (new Date()).getFullYear()
-    };
+    this.composeWith('toyproblem:package', {
+      options: {
+        pkg: pkg
+      }
+    }, {
+      local: require.resolve('../package')
+    });
 
     // Delegate creation of README.md file
     this.composeWith('toyproblem:readme', {
@@ -97,6 +104,7 @@ module.exports = generators.Base.extend({
     }, {
       local: require.resolve('../readme')
     });
+
     // Delegate creation of LICENSE.md file
     this.composeWith('toyproblem:license', {
       options: {
@@ -106,14 +114,17 @@ module.exports = generators.Base.extend({
     }, {
       local: require.resolve('../license')
     });
+
     // Delegate creation of Git files
     this.composeWith('toyproblem:git', {}, {
       local: require.resolve('../git')
     });
+
     // Delegate creation of gulpfile
     this.composeWith('toyproblem:gulp', {}, {
       local: require.resolve('../gulp')
     });
+
     // Delegate creation of boilerplate files
     this.composeWith('toyproblem:boilerplate', {}, {
       local: require.resolve('../boilerplate')
