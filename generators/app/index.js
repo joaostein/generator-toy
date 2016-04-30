@@ -104,7 +104,7 @@ module.exports = generators.Base.extend({
       local: require.resolve('../gulp')
     });
     // Delegate creation of boilerplate files
-    this.composeWith('toyproblem:gulp', {}, {
+    this.composeWith('toyproblem:boilerplate', {}, {
       local: require.resolve('../boilerplate')
     });
   },
