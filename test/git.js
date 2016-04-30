@@ -14,7 +14,7 @@ describe('toyproblem:git', function () {
     assert.file('.git');
   });
 
-  it('should create .gitignorefile', function () {
+  it('should create .gitignore file', function () {
     assert.file('.gitignore');
   });
 
