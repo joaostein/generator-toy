@@ -6,13 +6,6 @@ var _ = require('lodash');
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
-
-    this.option('name', {
-      type: String,
-      required: true,
-      defaults: 'toyproblem-boilerplate',
-      desc: 'Project name'
-    });
   },
 
   prompting: {
@@ -65,30 +58,24 @@ module.exports = generators.Base.extend({
   },
 
   default: function () {
-    var copyright = {
-      author: this.options.authorName,
-      year: (new Date()).getFullYear()
-    };
-
-    var pkg = {
-      name: this.options.name,
-      version: this.options.version,
-      description: this.options.description,
-      main: 'index.js',
-      scripts: {
-        test: 'mocha'
-      },
-      license: 'MIT',
-      author: {
-        name: this.options.authorName,
-        email: this.options.authorEmail,
-        url: this.options.authorUrl
-      }
-    };
-
+    // Delegate creation of package.json file
     this.composeWith('toyproblem:package', {
       options: {
-        pkg: pkg
+        pkg: {
+          name: this.options.name,
+          version: this.options.version,
+          description: this.options.description,
+          main: 'index.js',
+          scripts: {
+            test: 'mocha'
+          },
+          license: 'MIT',
+          author: {
+            name: this.options.authorName,
+            email: this.options.authorEmail,
+            url: this.options.authorUrl
+          }
+        }
       }
     }, {
       local: require.resolve('../package')
@@ -98,8 +85,8 @@ module.exports = generators.Base.extend({
     this.composeWith('toyproblem:readme', {
       options: {
         projectName: this.options.name,
-        author: copyright.author,
-        year: copyright.year
+        author: this.options.authorName,
+        year: (new Date()).getFullYear()
       }
     }, {
       local: require.resolve('../readme')
@@ -108,8 +95,8 @@ module.exports = generators.Base.extend({
     // Delegate creation of LICENSE.md file
     this.composeWith('toyproblem:license', {
       options: {
-        author: copyright.author,
-        year: copyright.year
+        author: this.options.authorName,
+        year: (new Date()).getFullYear()
       }
     }, {
       local: require.resolve('../license')
