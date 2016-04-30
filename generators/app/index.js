@@ -82,15 +82,26 @@ module.exports = generators.Base.extend({
   },
 
   default: function () {
+    var copyright = {
+      author: this.options.authorName,
+      year: (new Date()).getFullYear()
+    };
+
     // Delegate creation of README.md file
-    this.composeWith('toyproblem:readme', {}, {
+    this.composeWith('toyproblem:readme', {
+      options: {
+        projectName: this.options.name,
+        author: copyright.author,
+        year: copyright.year
+      }
+    }, {
       local: require.resolve('../readme')
     });
     // Delegate creation of LICENSE.md file
     this.composeWith('toyproblem:license', {
       options: {
-        author: this.options.authorName,
-        year: (new Date()).getFullYear()
+        author: copyright.author,
+        year: copyright.year
       }
     }, {
       local: require.resolve('../license')

@@ -4,6 +4,7 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 var _ = require('lodash');
+var year = (new Date()).getFullYear();
 
 describe('toyproblem:app', function () {
   before(function (done) {
@@ -41,7 +42,6 @@ describe('toyproblem:app', function () {
     });
 
     it('should include updated and named license file', function () {
-      var year = (new Date()).getFullYear();
       assert.fileContent('LICENSE', 'Copyright (c) ' + year + ' ' + this.answers.authorName);
     });
   });
@@ -76,6 +76,20 @@ describe('toyproblem:app', function () {
           'gulp-istanbul': '*'
         }
       });
+    });
+  });
+
+  describe('README', function () {
+    it('should exist', function () {
+      assert.file('README.md');
+    });
+
+    it('should have a main title with project name', function () {
+      assert.fileContent('README.md', '# ' + _.kebabCase(this.answers.name));
+    });
+
+    it('should have license reference', function () {
+      assert.fileContent('README.md', 'MIT License © ' + year + ' ' + this.answers.authorName);
     });
   });
 });

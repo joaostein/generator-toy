@@ -40,7 +40,7 @@ describe('toyproblem:boilerplate', function () {
     it('should use expect syntax', function () {
       assert.fileContent('test/test.js', 'var expect = chai.expect;');
     });
-    
+
     it('should have initial basic example', function () {
       assert.fileContent('test/test.js', 'it(\'should pass all tests\'');
       assert.fileContent('test/test.js', 'describe(\'Example\'');
