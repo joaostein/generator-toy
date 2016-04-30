@@ -95,5 +95,13 @@ describe('toyproblem:app', function () {
     it('should have basic description', function () {
       assert.fileContent('README.md', 'This is a boilerplate repository with basic files to start a Toy Problem exercise.');
     });
+
+    it('should describe stack', function () {
+      assert.fileContent('README.md', '* [Gulp](http://gulpjs.com/)');
+      assert.fileContent('README.md', '* [Chai](http://chaijs.com/)');
+      assert.fileContent('README.md', '* [Mocha](http://mochajs.org/)');
+      assert.fileContent('README.md', '* [ESLint](http://eslint.org/)');
+      assert.fileContent('README.md', '* [Istanbul](https://github.com/gotwarlost/istanbul)');
+    });
   });
 });
