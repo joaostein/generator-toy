@@ -128,6 +128,10 @@ describe('toyproblem:app', function () {
         assert.fileContent('test.js', 'var expect = chai.expect;');
       });
 
+      it('should include documentation for reference', function () {
+        assert.fileContent('test.js', 'http://chaijs.com/api/bdd/');
+      });
+
       it('should have initial basic example', function () {
         assert.fileContent('test.js', 'it(\'should pass all tests\'');
         assert.fileContent('test.js', 'describe(\'Example\'');
