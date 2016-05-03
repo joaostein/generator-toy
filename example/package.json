@@ -1,0 +1,25 @@
+{
+  "name": "example",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha && jshint *.js"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Joao Stein",
+    "email": "joaosteing@gmail.com",
+    "url": ""
+  },
+  "devDependencies": {
+    "chai": "*",
+    "gulp": "*",
+    "jshint": "^2.9.2",
+    "mocha": "*"
+  },
+  "jshintConfig": {
+    "node": "true",
+    "mocha": "true"
+  }
+}

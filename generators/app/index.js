@@ -26,7 +26,7 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'description',
         message: 'Your project description',
-        default: ''
+        default: 'This is a generic description. Please change it.'
       }, {
         type: 'input',
         name: 'authorName',
