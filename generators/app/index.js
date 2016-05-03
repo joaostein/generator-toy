@@ -59,7 +59,7 @@ module.exports = generators.Base.extend({
 
   default: function () {
     // Delegate creation of package.json file
-    this.composeWith('toyproblem:package', {
+    this.composeWith('toy:package', {
       options: {
         pkg: {
           name: this.options.name,
@@ -82,7 +82,7 @@ module.exports = generators.Base.extend({
     });
 
     // Delegate creation of README.md file
-    this.composeWith('toyproblem:readme', {
+    this.composeWith('toy:readme', {
       options: {
         name: this.options.name,
         description: this.options.description,
@@ -94,7 +94,7 @@ module.exports = generators.Base.extend({
     });
 
     // Delegate creation of LICENSE.md file
-    this.composeWith('toyproblem:license', {
+    this.composeWith('toy:license', {
       options: {
         author: this.options.authorName,
         year: (new Date()).getFullYear()
@@ -104,12 +104,12 @@ module.exports = generators.Base.extend({
     });
 
     // Delegate creation of Git files
-    this.composeWith('toyproblem:git', {}, {
+    this.composeWith('toy:git', {}, {
       local: require.resolve('../git')
     });
 
     // Delegate creation of boilerplate files
-    this.composeWith('toyproblem:boilerplate', {}, {
+    this.composeWith('toy:boilerplate', {}, {
       local: require.resolve('../boilerplate')
     });
   },
