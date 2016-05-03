@@ -23,6 +23,10 @@ module.exports = generators.Base.extend({
         chai: chaiLatestVersion,
         mocha: mochaLatestVersion,
         jshint: jshintLatestVersion
+      },
+      jshintConfig: {
+        node: 'true',
+        mocha: 'true'
       }
     });
 

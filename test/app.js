@@ -59,6 +59,12 @@ describe('toyproblem:app', function () {
       assert.fileContent('package.json', '"mocha": "^');
       assert.fileContent('package.json', '"jshint": "^');
     });
+
+    it('should include jshint config', function () {
+      assert.fileContent('package.json', '"jshintConfig":');
+      assert.fileContent('package.json', '"node": "true"');
+      assert.fileContent('package.json', '"mocha": "true"');
+    });
   });
 
   describe('README', function () {
