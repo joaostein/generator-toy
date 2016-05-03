@@ -79,16 +79,9 @@ describe('toyproblem:app', function () {
     });
 
     it('should have tech stack description', function () {
-      assert.fileContent('README.md', '* [Gulp](http://gulpjs.com/) task runner');
       assert.fileContent('README.md', '* [Mocha](http://mochajs.org/) unit test');
       assert.fileContent('README.md', '* [Chai](http://chaijs.com/) assertion library');
-      assert.fileContent('README.md', '* [ESLint](http://eslint.org/) linting and code style checking');
-      assert.fileContent('README.md', '* [Istanbul](https://github.com/gotwarlost/istanbul) code coverage');
-    });
-
-    it('should include usage instructions', function () {
-      assert.fileContent('README.md', '## Usage');
-      assert.fileContent('README.md', '`$ npm install`');
+      assert.fileContent('README.md', '* [JSHint](http://jshint.com/about/) code linting');
     });
 
     it('should have test instructions', function () {
