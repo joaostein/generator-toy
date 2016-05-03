@@ -47,32 +47,17 @@ describe('toyproblem:app', function () {
 
   describe('package.json', function () {
     it('should fill with correct information', function () {
-      assert.jsonFileContent('package.json', {
-        name: _.kebabCase(this.answers.name),
-        version: this.answers.version,
-        description: this.answers.description,
-        main: 'index.js',
-        scripts: {
-          test: 'mocha && jshint *.js'
-        },
-        license: 'MIT',
-        author: {
-          name: this.answers.authorName,
-          email: this.answers.authorEmail,
-          url: this.answers.authorUrl
-        }
-      });
+      assert.fileContent('package.json', '"name": "' + _.kebabCase(this.answers.name) + '"');
+      assert.fileContent('package.json', '"description": "' + this.answers.description + '"');
+      assert.fileContent('package.json', '"name": "' + this.answers.authorName + '"');
+      assert.fileContent('package.json', '"email": "' + this.answers.authorEmail + '"');
+      assert.fileContent('package.json', '"url": "' + this.answers.authorUrl + '"');
     });
 
     it('should have dependencies', function () {
-      assert.jsonFileContent('package.json', {
-        devDependencies: {
-          gulp: '*',
-          chai: '*',
-          mocha: '*',
-          jshint: '*',
-        }
-      });
+      assert.fileContent('package.json', '"chai": "^');
+      assert.fileContent('package.json', '"mocha": "^');
+      assert.fileContent('package.json', '"jshint": "^');
     });
   });
 
