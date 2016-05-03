@@ -33,7 +33,6 @@ describe('toyproblem:app', function () {
         'README.md',
         'LICENSE',
         '.gitignore',
-        'gulpfile.js',
         'index.js',
         'test/test.js'
       ];

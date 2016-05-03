@@ -108,11 +108,6 @@ module.exports = generators.Base.extend({
       local: require.resolve('../git')
     });
 
-    // Delegate creation of gulpfile
-    this.composeWith('toyproblem:gulp', {}, {
-      local: require.resolve('../gulp')
-    });
-
     // Delegate creation of boilerplate files
     this.composeWith('toyproblem:boilerplate', {}, {
       local: require.resolve('../boilerplate')
