@@ -16,7 +16,7 @@ gulp.task('static', function () {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src(['generators/**/*.js', '!**/templates/**'])
+  return gulp.src(['app/index.js', '!**/templates/**'])
     .pipe(istanbul({
       includeUntested: true
     }))
@@ -26,7 +26,7 @@ gulp.task('pre-test', function () {
 gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/**/*.js')
+  gulp.src('test/index.js')
     .pipe(plumber())
     .pipe(mocha({ reporter: 'spec', timeout: 5000 }))
     .on('error', function (err) {

@@ -10,6 +10,7 @@
     "dojo"
   ],
   "author": "Joao Stein <joaosteing@gmail.com> (http://jstein.me)",
+  "main": "app/index.js",
   "repository": "joaostein/generator-toy",
   "scripts": {
     "test": "gulp"
@@ -31,12 +32,7 @@
     "yeoman-test": "^1.1.0"
   },
   "files": [
-    "generators/app",
-    "generators/boilerplate",
-    "generators/git",
-    "generators/license",
-    "generators/package",
-    "generators/readme"
+    "app"
   ],
   "license": "MIT"
 }

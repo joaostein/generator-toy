@@ -17,7 +17,7 @@ describe('toy:app', function () {
       authorUrl: 'http://example.com'
     };
 
-    helpers.run(path.join(__dirname, '../generators/app'))
+    helpers.run(path.join(__dirname, '../app'))
       .withPrompts(this.answers)
       .on('end', done);
   });
