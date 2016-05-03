@@ -89,45 +89,29 @@ describe('toyproblem:app', function () {
     });
 
     it('should have license reference', function () {
-      assert.fileContent('README.md', 'MIT License © ' + year + ' ' + this.answers.authorName);
+      assert.fileContent('README.md', 'MIT License © ' + year + ', ' + this.answers.authorName);
     });
 
     it('should have basic description', function () {
-      assert.fileContent('README.md', '`generator-toyproblem` creates a base template to start a new Toy Problem exercise.');
+      assert.fileContent('README.md', this.answers.description);
     });
 
-    it('should have install and usage instructions', function () {
-      assert.fileContent('README.md', '## Install');
-      assert.fileContent('README.md', '`$ npm install --global generator-toyproblem`');
-
-      assert.fileContent('README.md', '## Usage');
-      assert.fileContent('README.md', '`$ yo toyproblem`');
-
-      assert.fileContent('README.md', 'That\'ll generate a project with all the common tools setup. This includes:');
-      assert.fileContent('README.md', '* Filled `package.json`');
+    it('should have tech stack description', function () {
       assert.fileContent('README.md', '* [Gulp](http://gulpjs.com/) task runner');
       assert.fileContent('README.md', '* [Mocha](http://mochajs.org/) unit test');
       assert.fileContent('README.md', '* [Chai](http://chaijs.com/) assertion library');
       assert.fileContent('README.md', '* [ESLint](http://eslint.org/) linting and code style checking');
       assert.fileContent('README.md', '* [Istanbul](https://github.com/gotwarlost/istanbul) code coverage');
-      assert.fileContent('README.md', '* MIT License');
+    });
+
+    it('should include usage instructions', function () {
+      assert.fileContent('README.md', '## Usage');
+      assert.fileContent('README.md', '`$ npm install`');
     });
 
     it('should have test instructions', function () {
       assert.fileContent('README.md', '## Running Tests');
-      assert.fileContent('README.md', 'Once the project is scaffolded, inside the project folder run:');
       assert.fileContent('README.md', '`$ npm test`');
-    });
-
-    it('should describe available options', function () {
-      assert.fileContent('README.md', '## Options');
-      assert.fileContent('README.md', 'Here\'s a list of our supported options:');
-      assert.fileContent('README.md', '* `name` (_String_, default `toyproblem-boilerplate`) Specify the project name.');
-      assert.fileContent('README.md', '* `version` (_String_, default `0.0.0`) Specify the version.');
-      assert.fileContent('README.md', '* `description` (_String_) Specify the project description.');
-      assert.fileContent('README.md', '* `authorName` (_String_) Specify the author name.');
-      assert.fileContent('README.md', '* `authorEmail` (_String_) Specify the author email.');
-      assert.fileContent('README.md', '* `authorUrl` (_String_) Specify the author homepage url.');
     });
   });
 });

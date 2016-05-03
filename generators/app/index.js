@@ -84,7 +84,8 @@ module.exports = generators.Base.extend({
     // Delegate creation of README.md file
     this.composeWith('toyproblem:readme', {
       options: {
-        projectName: this.options.name,
+        name: this.options.name,
+        description: this.options.description,
         author: this.options.authorName,
         year: (new Date()).getFullYear()
       }
