@@ -93,6 +93,11 @@ describe('toyproblem:app', function () {
       assert.fileContent('.gitignore', 'node_modules/');
       assert.fileContent('.gitignore', '.DS_Store');
     });
+
+    it('should create initial commit', function () {
+      assert.file('.git/COMMIT_EDITMSG');
+      assert.fileContent('.git/COMMIT_EDITMSG', 'Initial commit');
+    });
   });
 
 

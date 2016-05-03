@@ -15,5 +15,7 @@ module.exports = generators.Base.extend({
 
   end: function () {
     this.spawnCommandSync('git', ['init', '--quiet']);
+    this.spawnCommandSync('git', ['add', '.']);
+    this.spawnCommandSync('git', ['commit', '-m', 'Initial commit', '--quiet']);
   }
 });
