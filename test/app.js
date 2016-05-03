@@ -100,7 +100,6 @@ describe('toy:app', function () {
     });
   });
 
-
   describe('Files', function () {
     describe('index.js', function () {
       it('should exist', function () {
