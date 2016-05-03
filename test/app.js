@@ -55,9 +55,9 @@ describe('toyproblem:app', function () {
     });
 
     it('should have dependencies', function () {
-      assert.fileContent('package.json', '"chai": "^');
-      assert.fileContent('package.json', '"mocha": "^');
-      assert.fileContent('package.json', '"jshint": "^');
+      assert.fileContent('package.json', '"chai": "*"');
+      assert.fileContent('package.json', '"mocha": "*"');
+      assert.fileContent('package.json', '"jshint": "*"');
     });
 
     it('should include jshint config', function () {

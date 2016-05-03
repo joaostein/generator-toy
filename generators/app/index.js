@@ -115,6 +115,7 @@ module.exports = generators.Base.extend({
   },
 
   installing: function () {
+    this.npmInstall(['chai', 'mocha', 'jshint'], { saveDev: true });
     this.npmInstall();
   }
 });
