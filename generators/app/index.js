@@ -67,7 +67,7 @@ module.exports = generators.Base.extend({
           description: this.options.description,
           main: 'index.js',
           scripts: {
-            test: 'mocha'
+            test: 'mocha && jshint *.js'
           },
           license: 'MIT',
           author: {

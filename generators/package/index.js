@@ -14,9 +14,7 @@ module.exports = generators.Base.extend({
         gulp: '*',
         chai: '*',
         mocha: '*',
-        'gulp-eslint': '*',
-        'gulp-mocha': '*',
-        'gulp-istanbul': '*'
+        jshint: '*'
       }
     });
 

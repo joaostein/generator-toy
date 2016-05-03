@@ -53,7 +53,7 @@ describe('toyproblem:app', function () {
         description: this.answers.description,
         main: 'index.js',
         scripts: {
-          test: 'mocha'
+          test: 'mocha && jshint *.js'
         },
         license: 'MIT',
         author: {
@@ -70,9 +70,7 @@ describe('toyproblem:app', function () {
           gulp: '*',
           chai: '*',
           mocha: '*',
-          'gulp-eslint': '*',
-          'gulp-mocha': '*',
-          'gulp-istanbul': '*'
+          jshint: '*',
         }
       });
     });
