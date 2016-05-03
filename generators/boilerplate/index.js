@@ -9,6 +9,6 @@ module.exports = generators.Base.extend({
 
   writing: function () {
     this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath('index.js'), {});
-    this.fs.copyTpl(this.templatePath('test.js'), this.destinationPath('test/test.js'), {});
+    this.fs.copyTpl(this.templatePath('test.js'), this.destinationPath('test.js'), {});
   }
 });

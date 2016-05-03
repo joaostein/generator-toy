@@ -34,7 +34,7 @@ describe('toyproblem:app', function () {
         'LICENSE',
         '.gitignore',
         'index.js',
-        'test/test.js'
+        'test.js'
       ];
 
       assert.file(expected);

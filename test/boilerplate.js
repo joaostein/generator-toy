@@ -24,27 +24,27 @@ describe('toyproblem:boilerplate', function () {
     });
   });
 
-  describe('test/test.js', function () {
+  describe('test.js', function () {
     it('should exist', function () {
-      assert.file('test/test.js');
+      assert.file('test.js');
     });
 
     it('should use strict mode', function () {
-      assert.fileContent('test/test.js', '\'use strict\';');
+      assert.fileContent('test.js', '\'use strict\';');
     });
 
     it('should require chai', function () {
-      assert.fileContent('test/test.js', 'var chai = require(\'chai\');');
+      assert.fileContent('test.js', 'var chai = require(\'chai\');');
     });
 
     it('should use expect syntax', function () {
-      assert.fileContent('test/test.js', 'var expect = chai.expect;');
+      assert.fileContent('test.js', 'var expect = chai.expect;');
     });
 
     it('should have initial basic example', function () {
-      assert.fileContent('test/test.js', 'it(\'should pass all tests\'');
-      assert.fileContent('test/test.js', 'describe(\'Example\'');
-      assert.fileContent('test/test.js', 'expect(true).to.equal(true);');
+      assert.fileContent('test.js', 'it(\'should pass all tests\'');
+      assert.fileContent('test.js', 'describe(\'Example\'');
+      assert.fileContent('test.js', 'expect(true).to.equal(true);');
     });
   });
 });
