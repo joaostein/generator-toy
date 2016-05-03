@@ -5,7 +5,8 @@
   "homepage": "https://github.com/joaostein/generator-toy/",
   "keywords": [
     "yeoman-generator",
-    "toy problem",
+    "puzzle",
+    "toyproblem",
     "dojo"
   ],
   "author": "Joao Stein <joaosteing@gmail.com> (http://jstein.me)",
@@ -32,5 +33,5 @@
   "files": [
     "generators/app"
   ],
-  "license": "MIT",
+  "license": "MIT"
 }
