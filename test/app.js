@@ -6,7 +6,7 @@ var helpers = require('yeoman-test');
 var _ = require('lodash');
 var year = (new Date()).getFullYear();
 
-describe('toyproblem:app', function () {
+describe('toy:app', function () {
   before(function (done) {
     this.answers = {
       name: 'exampleProject',

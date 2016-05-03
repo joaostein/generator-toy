@@ -1,23 +1,21 @@
-# Toyproblem Generator
+# Toy problem Generator
 
-`generator-toyproblem` creates a base template to start a new Toy Problem exercise.
+`generator-toy` creates a base template to start a new [Toy Problem](https://en.wikipedia.org/wiki/Toy_problem).
 
 ## Install
 
-`$ npm install --global generator-toyproblem`
+`$ npm install --global generator-toy`
 
 ## Usage
 
-`$ yo toyproblem`
+`$ yo toy`
 
 That'll generate a project with all the common tools setup. This includes:
 
 * Filled `package.json`
-* [Gulp](http://gulpjs.com/) task runner
 * [Mocha](http://mochajs.org/) unit test
 * [Chai](http://chaijs.com/) assertion library
-* [ESLint](http://eslint.org/) linting and code style checking
-* [Istanbul](https://github.com/gotwarlost/istanbul) code coverage
+* [JSHint](http://jshint.com/about/) code linting
 * MIT License
 
 ## Running Tests

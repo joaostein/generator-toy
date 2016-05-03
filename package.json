@@ -1,7 +1,7 @@
 {
-  "name": "generator-toyproblem",
+  "name": "generator-toy",
   "version": "1.0.0",
-  "description": "A generator for toy problems solution scaffold with the tools you love: Gulp, Mocha, Chai and JSHint",
+  "description": "A generator for toy problems solution scaffold with the tools you love: Mocha, Chai and JSHint",
   "scripts": {
     "test": "gulp"
   },
