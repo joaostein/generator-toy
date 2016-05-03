@@ -1,0 +1,21 @@
+Description:
+    Creates a new basic toy problem scaffold with testing tools.
+
+Options:
+    Name: Specify project name
+    Version: Specify project version
+    Description: Specify project description
+    AuthorName: Specify author name
+    AuthorEmail: Specify author email
+    AuthorUrl: Specify author homepage url
+
+Example:
+    yo toy
+
+    This will create:
+        package.json: Development packages installed by npm.
+        .gitignore: Git configuration with files to ignore tracking.
+        LICESNE: MIT license file with author and current year.
+        README.md: Readme file with basic instructions
+        index.js: Your application file.
+        test.js: Your unit tests file.
