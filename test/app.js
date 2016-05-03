@@ -22,7 +22,7 @@ describe('toyproblem:app', function () {
       .on('end', done);
   });
 
-  describe('defaults', function () {
+  describe('Defaults', function () {
     it('should CD into a folder named with kebab-case version of argument', function () {
       assert.equal(path.basename(process.cwd()), _.kebabCase(this.answers.name));
     });
@@ -62,31 +62,71 @@ describe('toyproblem:app', function () {
   });
 
   describe('README', function () {
-    it('should exist', function () {
-      assert.file('README.md');
-    });
-
-    it('should have a main title with project name', function () {
+    it('should fill with correct information', function () {
       assert.fileContent('README.md', '# ' + _.kebabCase(this.answers.name));
-    });
-
-    it('should have license reference', function () {
-      assert.fileContent('README.md', 'MIT License © ' + year + ', ' + this.answers.authorName);
-    });
-
-    it('should have basic description', function () {
       assert.fileContent('README.md', this.answers.description);
-    });
-
-    it('should have tech stack description', function () {
       assert.fileContent('README.md', '* [Mocha](http://mochajs.org/) unit test');
       assert.fileContent('README.md', '* [Chai](http://chaijs.com/) assertion library');
       assert.fileContent('README.md', '* [JSHint](http://jshint.com/about/) code linting');
-    });
-
-    it('should have test instructions', function () {
       assert.fileContent('README.md', '## Running Tests');
       assert.fileContent('README.md', '`$ npm test`');
+      assert.fileContent('README.md', 'MIT License © ' + year + ', ' + this.answers.authorName);
+    });
+  });
+
+  describe('Git', function () {
+    it('should initialize git repository', function () {
+      assert.file('.git');
+    });
+
+    it('should create .gitignore file', function () {
+      assert.file('.gitignore');
+    });
+
+    it('should add default files to .gitignore', function () {
+      assert.fileContent('.gitignore', 'node_modules/');
+      assert.fileContent('.gitignore', '.DS_Store');
+    });
+  });
+
+
+  describe('Files', function () {
+    describe('index.js', function () {
+      it('should exist', function () {
+        assert.file('index.js');
+      });
+
+      it('should use strict mode', function () {
+        assert.fileContent('index.js', '\'use strict\';');
+      });
+
+      it('should start with friendly comment', function () {
+        assert.fileContent('index.js', '// your code here');
+      });
+    });
+
+    describe('test.js', function () {
+      it('should exist', function () {
+        assert.file('test.js');
+      });
+
+      it('should use strict mode', function () {
+        assert.fileContent('test.js', '\'use strict\';');
+      });
+
+      it('should require chai', function () {
+        assert.fileContent('test.js', 'var chai = require(\'chai\');');
+      });
+
+      it('should use expect syntax', function () {
+        assert.fileContent('test.js', 'var expect = chai.expect;');
+      });
+
+      it('should have initial basic example', function () {
+        assert.fileContent('test.js', 'it(\'should pass all tests\'');
+        assert.fileContent('test.js', 'describe(\'Example\'');
+        assert.fileContent('test.js', 'expect(true).to.equal(true);');
+      });
     });
   });
 });
