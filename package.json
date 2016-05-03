@@ -1,6 +1,6 @@
 {
   "name": "generator-toy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A generator for toy problems with the tools you love: Mocha, Chai and JSHint",
   "homepage": "https://github.com/joaostein/generator-toy/",
   "keywords": [
