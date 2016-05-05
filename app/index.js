@@ -56,39 +56,31 @@ module.exports = generators.Base.extend({
     }
   },
 
-  writing: {
-    base: function () {
-      this.destinationRoot(this.destinationPath(this.options.name));
-    },
+  writing: function () {
+    // Generate base
+    this.destinationRoot(this.destinationPath(this.options.name));
+    this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath('index.js'), {});
+    this.fs.copyTpl(this.templatePath('test.js'), this.destinationPath('test.js'), {});
 
-    packageJSON: function () {
-      this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.options);
-    },
+    // Generate package.json
+    this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.options);
 
-    readme: function () {
-      this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {
-        name: this.options.name,
-        description: this.options.description,
-        year: this.options.year,
-        author: this.options.authorName
-      });
-    },
+    // Generate README
+    this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {
+      name: this.options.name,
+      description: this.options.description,
+      year: this.options.year,
+      author: this.options.authorName
+    });
 
-    license: function () {
-      this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), {
-        year: this.options.year,
-        author: this.options.authorName
-      });
-    },
+    // Generate License
+    this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), {
+      year: this.options.year,
+      author: this.options.authorName
+    });
 
-    git: function () {
-      this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('.gitignore'), {});
-    },
-
-    boilerplate: function () {
-      this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath('index.js'), {});
-      this.fs.copyTpl(this.templatePath('test.js'), this.destinationPath('test.js'), {});
-    }
+    // Initialize git
+    this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('.gitignore'), {});
   },
 
   install: function () {
