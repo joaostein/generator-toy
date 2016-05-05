@@ -137,8 +137,8 @@ describe('toy:app', function () {
       });
 
       it('should have initial basic example', function () {
-        assert.fileContent('test.js', 'it(\'should pass all tests\'');
         assert.fileContent('test.js', 'describe(\'Example\'');
+        assert.fileContent('test.js', 'it(\'should pass all tests\'');
         assert.fileContent('test.js', 'expect(true).to.equal(true);');
       });
     });
