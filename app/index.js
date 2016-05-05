@@ -71,10 +71,7 @@ module.exports = generators.Base.extend({
           name: this.options.authorName,
           email: this.options.authorEmail,
           url: this.options.authorUrl
-        }
-      };
-
-      _.merge(pkg, {
+        },
         devDependencies: {
           chai: '*',
           mocha: '*',
@@ -84,7 +81,7 @@ module.exports = generators.Base.extend({
           node: 'true',
           mocha: 'true'
         }
-      });
+      };
 
       // Update & Create package.json
       this.fs.writeJSON(this.destinationPath('package.json'), pkg);
