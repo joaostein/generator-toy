@@ -1,11 +1,11 @@
 'use strict';
 
-var generators = require('yeoman-generator');
+var yeoman = require('yeoman-generator');
 var _ = require('lodash');
 
-module.exports = generators.Base.extend({
+var ToyProblemGenerator = yeoman.Base.extend({
   constructor: function () {
-    generators.Base.apply(this, arguments);
+    yeoman.Base.apply(this, arguments);
   },
 
   initializing: function () {
@@ -92,3 +92,5 @@ module.exports = generators.Base.extend({
     this.spawnCommandSync('git', ['commit', '-m', 'Initial commit', '--quiet']);
   }
 });
+
+module.exports = ToyProblemGenerator;
