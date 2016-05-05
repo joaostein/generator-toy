@@ -12,48 +12,46 @@ module.exports = generators.Base.extend({
     this.options.year = (new Date()).getFullYear();
   },
 
-  prompting: {
-    askFor: function () {
-      var done = this.async();
+  prompting: function () {
+    var done = this.async();
 
-      var prompts = [{
-        type: 'input',
-        name: 'name',
-        message: 'Your project name',
-        default: this.options.name
-      }, {
-        type: 'input',
-        name: 'version',
-        message: 'Your project version',
-        default: '0.0.0'
-      }, {
-        type: 'input',
-        name: 'description',
-        message: 'Your project description',
-        default: 'This is a generic description. Please change it.'
-      }, {
-        type: 'input',
-        name: 'authorName',
-        message: 'Author\'s Name',
-        default: this.user.git.name()
-      }, {
-        type: 'input',
-        name: 'authorEmail',
-        message: 'Author\'s Email',
-        default: this.user.git.email()
-      }, {
-        type: 'input',
-        name: 'authorUrl',
-        message: 'Author\'s Homepage',
-        default: ''
-      }];
+    var prompts = [{
+      type: 'input',
+      name: 'name',
+      message: 'Your project name',
+      default: this.options.name
+    }, {
+      type: 'input',
+      name: 'version',
+      message: 'Your project version',
+      default: '0.0.0'
+    }, {
+      type: 'input',
+      name: 'description',
+      message: 'Your project description',
+      default: 'This is a generic description. Please change it.'
+    }, {
+      type: 'input',
+      name: 'authorName',
+      message: 'Author\'s Name',
+      default: this.user.git.name()
+    }, {
+      type: 'input',
+      name: 'authorEmail',
+      message: 'Author\'s Email',
+      default: this.user.git.email()
+    }, {
+      type: 'input',
+      name: 'authorUrl',
+      message: 'Author\'s Homepage',
+      default: ''
+    }];
 
-      this.prompt(prompts, function (props) {
-        props.name = _.kebabCase(props.name);
-        this.options = _.merge(this.options, props);
-        done();
-      }.bind(this));
-    }
+    this.prompt(prompts, function (props) {
+      props.name = _.kebabCase(props.name);
+      this.options = _.merge(this.options, props);
+      done();
+    }.bind(this));
   },
 
   writing: function () {
