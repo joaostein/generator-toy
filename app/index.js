@@ -8,6 +8,10 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
   },
 
+  initializing: function () {
+    this.options.year = (new Date()).getFullYear();
+  },
+
   prompting: {
     askFor: function () {
       var done = this.async();
@@ -71,7 +75,7 @@ module.exports = generators.Base.extend({
       this.fs.copyTpl(templatePath, destinationTemplatePath, {
         name: this.options.name,
         description: this.options.description,
-        year: (new Date()).getFullYear(),
+        year: this.options.year,
         author: this.options.authorName
       });
     },
@@ -81,7 +85,7 @@ module.exports = generators.Base.extend({
       var destinationTemplatePath = this.destinationPath('LICENSE');
 
       this.fs.copyTpl(templatePath, destinationTemplatePath, {
-        year: (new Date()).getFullYear(),
+        year: this.options.year,
         author: this.options.authorName
       });
     },
