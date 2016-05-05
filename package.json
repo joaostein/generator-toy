@@ -1,6 +1,6 @@
 {
   "name": "generator-toy",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A generator for toy problems with the tools you love: Mocha, Chai and JSHint",
   "keywords": [
     "yeoman-generator",
@@ -31,6 +31,8 @@
     "yeoman-assert": "^2.1.1",
     "yeoman-test": "^1.1.0"
   },
-  "files": [ "app" ],
+  "files": [
+    "app"
+  ],
   "license": "MIT"
 }
