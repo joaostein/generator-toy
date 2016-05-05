@@ -24,6 +24,8 @@ Scaffolds out a complete Toy Problem exercise with JavaScript Testing and Lintin
 
 ```
 .
+├── .git
+├── .gitignore
 ├── LICENSE
 ├── README.md
 ├── index.js
