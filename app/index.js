@@ -58,33 +58,10 @@ module.exports = generators.Base.extend({
     },
 
     packageJSON: function () {
-      var pkg = {
-        name: this.options.name,
-        version: this.options.version,
-        description: this.options.description,
-        main: 'index.js',
-        scripts: {
-          test: 'mocha && jshint *.js'
-        },
-        license: 'MIT',
-        author: {
-          name: this.options.authorName,
-          email: this.options.authorEmail,
-          url: this.options.authorUrl
-        },
-        devDependencies: {
-          chai: '*',
-          mocha: '*',
-          jshint: '*'
-        },
-        jshintConfig: {
-          node: 'true',
-          mocha: 'true'
-        }
-      };
+      var templatePath = this.templatePath('package.json');
+      var destinationTemplatePath = this.destinationPath('package.json');
 
-      // Update & Create package.json
-      this.fs.writeJSON(this.destinationPath('package.json'), pkg);
+      this.fs.copyTpl(templatePath, destinationTemplatePath, this.options);
     },
 
     readme: function () {
