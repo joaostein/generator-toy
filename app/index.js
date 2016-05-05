@@ -62,17 +62,11 @@ module.exports = generators.Base.extend({
     },
 
     packageJSON: function () {
-      var templatePath = this.templatePath('package.json');
-      var destinationTemplatePath = this.destinationPath('package.json');
-
-      this.fs.copyTpl(templatePath, destinationTemplatePath, this.options);
+      this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.options);
     },
 
     readme: function () {
-      var templatePath = this.templatePath('README.md');
-      var destinationTemplatePath = this.destinationPath('README.md');
-
-      this.fs.copyTpl(templatePath, destinationTemplatePath, {
+      this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {
         name: this.options.name,
         description: this.options.description,
         year: this.options.year,
@@ -81,19 +75,14 @@ module.exports = generators.Base.extend({
     },
 
     license: function () {
-      var templatePath = this.templatePath('LICENSE');
-      var destinationTemplatePath = this.destinationPath('LICENSE');
-
-      this.fs.copyTpl(templatePath, destinationTemplatePath, {
+      this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), {
         year: this.options.year,
         author: this.options.authorName
       });
     },
 
     git: function () {
-      var templatePath = this.templatePath('.gitignore');
-      var destinationTemplatePath = this.destinationPath('.gitignore');
-      this.fs.copyTpl(templatePath, destinationTemplatePath, {});
+      this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('.gitignore'), {});
     },
 
     boilerplate: function () {
