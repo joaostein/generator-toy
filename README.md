@@ -1,37 +1,39 @@
-# Toy problem Generator
+# generator-toy
 
-`generator-toy` creates a base template to start a new [Toy Problem](https://en.wikipedia.org/wiki/Toy_problem).
+> Yeoman generator generating a base template to start a [Toy Problem](https://en.wikipedia.org/wiki/Toy_problem).
 
-## Install
+## Getting started
 
-`$ npm install --global generator-toy`
+* Install: `$ npm install --global generator-toy`
+* Run: `$ yo toy`
 
-## Usage
-
-`$ yo toy`
-
-That'll generate a project with all the common tools setup. This includes:
-
-* Filled `package.json`
-* [Mocha](http://mochajs.org/) unit test
-* [Chai](http://chaijs.com/) assertion library
-* [JSHint](http://jshint.com/about/) code linting
-* MIT License
-
-## Running Tests
-
-`$ npm test`
-
-## Options
+### Options
 
 Here's a list of our supported options:
 
-* `name` (_String_, default `toyproblem-boilerplate`) Specify the project name.
-* `version` (_String_, default `0.0.0`) Specify the version.
-* `description` (_String_) Specify the project description.
-* `authorName` (_String_) Specify the author name.
-* `authorEmail` (_String_) Specify the author email.
-* `authorUrl` (_String_) Specify the author homepage url.
+* `name` (_String_, default `toyproblem-boilerplate`) Project name.
+* `version` (_String_, default `0.0.0`) Project version.
+* `description` (_String_) Project description.
+* `authorName` (_String_) Author name.
+* `authorEmail` (_String_) Author email.
+* `authorUrl` (_String_) Author homepage url.
+
+## What do you get?
+
+Scaffolds out a complete Toy Problem exercise with JavaScript Testing and Linting support:
+
+```
+.
+├── LICENSE
+├── README.md
+├── index.js
+├── package.json
+└── test.js
+```
+
+## Running Tests
+
+Run `$ npm test` to run your test suite.
 
 ## License
 
