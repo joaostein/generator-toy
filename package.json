@@ -1,6 +1,6 @@
 {
   "name": "generator-toy",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A generator for toy problems with the tools you love: Mocha, Chai and JSHint",
   "keywords": [
     "yeoman-generator",
