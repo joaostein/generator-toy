@@ -1,6 +1,6 @@
 'use strict';
 
-// Documentation: http://chaijs.com/api/bdd/
+// Documentation Reference: https://gist.github.com/yoavniran/1e3b0162e1545055429e
 
 var chai = require('chai');
 var expect = chai.expect;

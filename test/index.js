@@ -133,7 +133,7 @@ describe('toy:app', function () {
       });
 
       it('should include documentation for reference', function () {
-        assert.fileContent('test.js', 'http://chaijs.com/api/bdd/');
+        assert.fileContent('test.js', 'Documentation Reference:');
       });
 
       it('should have initial basic example', function () {
